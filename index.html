@@ -295,7 +295,7 @@ function showPage(id, btn){
 async function refreshAuth(){
     const { data } = await db.auth.getSession();
     const user = data?.session?.user || null;
-    isAdmin = !!user && user.id === '01b5b347-16c8-465b-bde9-c8ec97054c2c';
+    isAdmin = !!user && user.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase();
     updateUI();
 }
 
